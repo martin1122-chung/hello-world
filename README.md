@@ -5,4 +5,6 @@ This is a message from GitHub.
 It is a source control resource.
 
 regards,
-M
+Martin Chung
+HDPCD.
+
