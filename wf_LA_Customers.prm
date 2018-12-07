@@ -46,3 +46,6 @@ $$EXTRACT_END_DT=2018-01-26 00:00:00
 -----------------------------------------------------------
 [s_m_BIDW_CFW_ETL_SESSION_CLOSE]
 $PMSessionLogFile=s_m_BIDWC_LA_Customers.log
+
+## added the last line from Shalom branch.
+
