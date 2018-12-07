@@ -1,0 +1,48 @@
+[Global]
+$$DT_FORMAT=YYYY-MM-DD HH24:MI:SS
+$PMSourceFileDir=/var/pcenter/infa_shared/SrcFiles/tmp/
+$PMTargetFileDir=/var/pcenter/infa_shared/TgtFiles/tmp/
+$PMLookupFileDir=/var/pcenter/infa_shared/LkpFiles/tmp/
+$PMBadFileDir=/var/pcenter/infa_shared/BadFiles/tmp/
+$PMSessionLogDir=/var/pcenter/infa_shared/SessLogs/tmp/
+$PMWorkflowLogDir=/var/pcenter/infa_shared/WorkflowLogs/tmp/
+$$PARAM_REPO_OWNER=REP_BIDW_PROD
+$DBConnection_Control=RCF__CFW_INFA
+$DBConnection_Infa_Rep=INFA__REPO__readonly
+$PMCacheDir=/var/pcenter/infa_shared/Cache/tmp/
+-----------------------------------------------------------
+---------     SESSION FOR WORKFLOW INITIALIZATION    ------
+-----------------------------------------------------------
+[s_m_BIDW_CFW_ETL_SESSION_INITIALIZE]
+$$PARAM_FILE_NAME=/var/pcenter/infa_shared/ParmFiles/tmp/wf_LA_Customers
+$OutputFile_Status=control_framework_of.log
+$BadFile_Status=control_framework_bf.bad
+$$BACKUP_FOLDER=/var/pcenter/infa_shared/ParmFiles/tmp/backup
+$PMSessionLogFile=s_m_LA_Customers.log
+-----------------------------------------------------
+-- Configure these parameters for the date processing
+-----------------------------------------------------
+$$REPROCESS_END_DT_FLAG=N
+$$RUN_INTERVAL=DD
+$$MAX_CYCLES=0
+$$PARAM_NAME1=EXTRACT_START_DT
+$$PARAM_NAME2=EXTRACT_END_DT
+$$PARAM_NAME3=
+$$PARAM_NAME4=
+-------------------------------------------------
+---------     SESSION FOR LOAD JOB  ------
+--------------------------------------------------
+[s_LA_Customers]
+$PMSessionErrorThreshold=1
+$PMSessionLogFile=s_m_LA_Customers.log
+$BadFile_Name=s_m_WF_Customers.bad
+
+
+$$EXTRACT_START_DT=1753-01-01 00:00:00
+$$EXTRACT_END_DT=2018-01-26 00:00:00
+
+-----------------------------------------------------------
+---------     SESSION FOR WORKFLOW CLOSE             ------
+-----------------------------------------------------------
+[s_m_BIDW_CFW_ETL_SESSION_CLOSE]
+$PMSessionLogFile=s_m_BIDWC_LA_Customers.log
